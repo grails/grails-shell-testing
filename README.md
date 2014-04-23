@@ -1,7 +1,7 @@
 grails-shell-testing
 ====================
 
-tests for grails shell
+tests for grails shell and command line
 
 These tests are using TCL based [expect](http://en.wikipedia.org/wiki/Expect). Mac OSX and Linux OSes usually have "expect" installed by default.
 
