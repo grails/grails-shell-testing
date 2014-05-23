@@ -4,4 +4,7 @@ jdk:
 branches:
   only:
     - master
+before_install:
+ - sudo apt-get update -qq
+ - sudo apt-get install -qq expect
 script: ./travis-build.sh
