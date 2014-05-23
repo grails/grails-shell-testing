@@ -12,21 +12,21 @@ expect "$ "
 send "cd dcreloadingapp\r"
 expect "$ "
 send "grails $argv -plain-output\r"
-expect "grails>"
+wait_grails_prompt
 send "run-app\r"
-expect "grails>"
+wait_grails_prompt
 sleep 15
 send "create-domain-class A\r"
-expect "grails>"
+wait_grails_prompt
 send "create-scaffold-controller dcreloadingapp.A\r"
-expect "grails>"
+wait_grails_prompt
 set timeout 10
-expect "\n"
+expect_exit_on_error "\n"
 addfield "dcreloadingapp/grails-app/domain/dcreloadingapp/A.groovy" "name"
-expect "\n"
+expect_exit_on_error "\n"
 for {set i 0} {$i < 10} {incr i} {
     addfield "dcreloadingapp/grails-app/domain/dcreloadingapp/A.groovy" "field$i"    
-    expect "\n"
+    expect_exit_on_error "\n"
 }
 send "exit\r"
 expect "$ "
