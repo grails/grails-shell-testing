@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/grails/grails-shell-testing.svg)](https://travis-ci.org/grails/grails-shell-testing)
+
 grails-shell-testing
 ====================
 
