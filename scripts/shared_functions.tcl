@@ -10,3 +10,18 @@ proc addfield {filename fieldname} {
     puts "Adding field $fieldname to $filename"
     exec perl -i -p -e "s/^\}\$/String $fieldname\\n\}\\n/" $filename 
 }
+
+proc wait_grails_prompt {} {
+	expect_exit_on_error "grails>"
+}
+
+proc expect_exit_on_error {waitforstring} {
+	expect {
+		"ERROR" {
+			puts "Caught an error, exiting..."
+			sleep 1
+			exit 1
+		}
+		$waitforstring
+	}
+}
