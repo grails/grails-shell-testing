@@ -5,7 +5,7 @@ proc updateplugin {filename pluginname version} {
 proc addfield {filename fieldname} {
     while { [file exists $filename] != 1} {
         puts "Waiting for $filename to be created"  
-        after 1000
+        sleep 1
     }
     puts "Adding field $fieldname to $filename"
     exec perl -i -p -e "s/^\}\$/String $fieldname\\n\}\\n/" $filename 
