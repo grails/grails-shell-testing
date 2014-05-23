@@ -1,4 +1,7 @@
 language: groovy
 jdk:
 - openjdk7
+branches:
+  only:
+    - master
 script: ./travis-build.sh
