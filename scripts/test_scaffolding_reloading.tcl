@@ -28,9 +28,11 @@ addfield "scaffoldingapp/grails-app/domain/scaffoldingapp/Book.groovy" "title"
 set timeout 10
 expect_exit_on_error "\n"
 
+sleep 2
+
 for {set i 0} {$i < 20} {incr i} {
-	send "!curl http://localhost:8080/scaffoldingapp/book/create\r"
-	exec curl "http://localhost:8080/scaffoldingapp/book/create" &
+	exec curl -s "http://localhost:8080/scaffoldingapp/book/create" > /dev/null &
+	send "!curl -s http://localhost:8080/scaffoldingapp/book/create\r"
 	wait_grails_prompt
 	sleep 1
 }
